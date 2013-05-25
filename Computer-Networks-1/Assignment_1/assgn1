@@ -1,0 +1,42 @@
+Assignment-1
+Submission Date: 30-8-12
+Allocation: as per excel sheet
+
+Expected Submission: A program written in 'C/C++' or 'Java' to compute the desired result for the given problem.
+    . Please provide a README file providing following details:
+    . program name MUST be asn1.c or Asn1.java
+    . Please provide a file result.txt which contains the results and explanation of the result.
+    . how to compile, and execute the program
+    . Description of how the program works
+    . Challenges/issues that you faced while writing such a program and how did you address the same.
+    . The values specified in the problem should not be hardcoded in the program. These should be taken as either as command line input parameter or read from a application config file. Thus, program should work correctly when the parameter values are changed.
+    . Provide the results of program execution with your explanation as per the parameters given in the problem. Change (either double or half) two of the parameters e.g. transmission speed, number of routers, link length, packet size etc and re-run the program. Provide and explain the 2nd computation.
+
+
+
+
+A1: A file of size 25MBytes is to be transmitted from src A to dstn B over a network consisting of 4 routers connected sequentially. Each link connecting routers has the transmission speed of 10Mbps. File will be sent in packets of 1 Mega bits. Each router uses store and forward mechanism. Assume there is no congestion in the network and there is no processing (including fragmentation/reassembly) delay. Assume there is no propagation delay. Compute the total time i.e. end to end delay when entire file is received by B after A starts transmission.
+
+
+A2. A file of size 25MBytes is to be transmitted from src A to dstn B connected by a router. Each link  has the transmission speed of 10Mbps. The entire file will be sent in one packet. The length of each link is 5000KM and propagation speed is 2x10^8 meters/sec. Each router uses store and forward mechanism. Assume there is no congestion in the network and there is no processing (including fragmentation/reassembly) delay. Compute the total time i.e. end to end delay when entire file is received by B after A starts transmission.
+
+A3. Support 4 users share a 3Mbps link. Also, suppose each user transmits continuously at 1 Mbps when transmitting but each user transmits only 10% of the time. Compute the probability value that at any given time, all 4 users are transmitting simultaneously.
+
+A4. Consider a highway that has tollboth every 100 Kilometers. Suppose that a caravan of 10 cars is travelling together, and each car travels at the speed of 80 KM/hr. Suppose that a caravan travels 200KM, beginning in front of one tollbooth, passing through 2nd tollbooth and finishes just after 3rd tollbooth (i.e. they arrive after crossing the 3rd tollbooth). Each car spends 10 seconds at each tollbooth. After crossing a tollbooth, the first car will start only after the entire caravan has arrived.  Compute the time it will take for the caravan to complete the journey.
+
+A5. Consider the problem in A4. Instead of waiting for the entire caravan to arrive after each tollbooth, it proceeds through without waiting for the cars behind it. Compute the time it will take entire caravan to complete the journey.
+
+A6. Consider the problem A3. Compute the probability value that there is no queuing delay i.e. up to 3 users can transmit simultaneously.
+
+A7. Consider the problem A2. Assume the link speed of 2nd link is 5Mbps instead of 10Mbps. Compute the total time when file will be received by i.e. end to end delay.
+
+A8. Consider the problem A1 and consider that there are only 2 routers in stead of 4 router. However, each router introduces a processing delay of 10ms. Compute the total time i.e. end to end delay.
+
+A9. Consider the problem A1 and consider that there are only 2 switches in stead of 4 routers, and that link speed is 1Mbps instead of 10Mbps. Assume that each switch uses cut-through switching i.e. starts sending packet after receiving first 1000 bits. Compute the total time i.e. end to end delay.
+
+A10. Consider that two hosts A and B are connected by link with transmission rate of 1Mbps, and link distance of 10000 Kilometers, and propagation speed is 2*10^8 meters/sec. Assume that src A will send the next packet only after receiving acknowledgement packet from B. The size of Ack packet is 125 bytes. A wants to send a file of 10 MBytes, and each packet is of size 2000 bytes. Compute the total time when B will receive the entire file after A starts sending it.
+
+A11. Consider the problem A2. Assume first link is used on TDM basis and this link has 10 timeslots. Similarly, 2nd link has 8 timeslots. Src A is using timeslot no 5 on first link, and router is using timeslot no 3 on second link. Compute the total time (i.e. end to end delay) when the file will be received by dstn B.
+
+
+ 

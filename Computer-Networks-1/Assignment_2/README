@@ -1,0 +1,61 @@
+----------------------------------------------------------------------------
+           ASSIGNMENT-2 A2-7 README by Vinod Kumar L and Ashwin Agarwal
+-----------------------------------------------------------------------------
+
+Members : Vinod Kumar L 1PI10IS118
+	  Ashwin Agarwal 1PI10IS131
+------------------------------------
+Programming Language used : Python
+
+Command Line Arguements :
+  -h --help	   HELP            To display the help message and the program usage
+  -s --servername  SERVERNAME      Accepts the server name for which the connection needs to be established. Default value is '127.0.0.1'
+  -p --portno      PORTNO 	   Accepts the port number through which the connection with the server will be established. Default value is '25'
+  -n --hostname    HOSTNAME        Accepts the host name. Default value is 'localhost'
+  -m --mailfrom    MAILFROM        Accepts the sender's email id
+  -r -mailto       MAILTO          Accepts the recipient's email id(s). Separated by ',' if there are more than one recipient
+
+--------------------------------------
+
+Modules Used :
+
+MODULE                    USAGE
+
+socket     for establishing connection with mailserver
+sys	          handling exit situations
+argparse   to handle and manipulate command line arguements
+string      to handle multiline input and parsing recipients
+
+------------------------------------------------------------
+Approach : 
+
+The program had to send mail to any recipient from any sender using Simple Mail Transfer Protocol. We first established a connection with the mail server and the valid port by creating a TCP socket. Once the success response has been recieved , we continue with sending a extended HELO i.e. EHLO command to initiate the SMTP conversation with the given DNS hostname. Once the success response is recieved , the MAIL FROM request is sent to the server along with the sender's mail ID (accepted in comman line argument or via standard input console ). The program waits for the success response from the server and moves on to the RCPT TO command which is used to set all the recipient(s) for the current mail to be delivered. The program is capble of accepting multiple recipient's IDs separated with ','. RCPT TO request is sent to the serve for each and every recipient accepted by the program. Once the server responds stating that these are valid recipients , then the DATA command is automatically initiated , prompting the user to enter the body of the mail. The body of the mail should end with '.'.Then the content in concatenated with '\r\n' and '\n\r.\r\n' so that it can be forwarded to the server. This virtually ends the mail transaction and the mail is sent to the valid recipients. The program now gives you an option to send another mail on the same server, if the user accepts this offer , then he will be redirected to MAIL FROM command and will be prompted to enter the new sender's mail and the other steps are repeated. If the user rejects the offer , then the connection with the server closes because of QUIT command. 
+The program also handle's failed server responses by echoing the failure and displaying the usage before exiting the program. The success commands are displayed after its stored as server response recv*.
+
+-------------------------------------------------------------
+Problems Faced and weaknesses:
+
+-> couldn't debug the error which we got while we created a ssl socket to send mails from smtp.gmail.com:587 server (consumed lot of time)
+   ssl.SSLError: [Errno 1] _ssl.c:504: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+-> spent lot of time on trying to debug the above error hence failed to implement attachments feature
+
+--------------------------------------------------------------
+Usage:
+
+python asn2.py -s <servername> -p <port_number> -n <hostname> -m <mailID_of_the_sender> -r <mailID_of_the_recipients>
+
+While running the program for the first time, use only -h or --help to get a jist of the command line arguements available
+python asn2.py -h
+
+Next, run using without any arguements to see the usage of default values
+python asn2.py
+
+Run the code with only the required parameters while leaving the others to proceed with default values
+python asn2.py -s localhost -p 25 -n localhost
+
+Run the code with all the parameters
+python asn2.py -s localhost -p 25 -n localhost -m cn@ise.pesit.edu -r ashwin@pes.ise,vinod
+
+***The result of these are given in result.txt
+-----------------------------------------------------------------
+

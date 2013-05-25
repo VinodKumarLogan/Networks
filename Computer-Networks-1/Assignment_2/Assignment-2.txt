@@ -1,0 +1,113 @@
+Assignment-2
+Submission Date: 6-Oct-12
+Allocation: as per allocation details given in pdf file.
+
+Expected Submission: A program written in python to compute the desired result for the given problem.
+    . Please provide a README file providing following details: a) the details of command line arguments, any specific modules used, b) description of how program works.
+    . For assignments CIE-A2-n, the programs can be written in C/C++/Java/Python. For assignments A2-n, program must be written using Python. Program name MUST be asn2 with suffix as applicable (e.g. c, c++, java, py).  The codes should not use any build in application layer protocol module such as  http or ftp module.
+    . Please provide a file result.txt which contains the results and explanation of the result.
+    . Challenges/issues that you faced while writing such a program and how did you address the same.
+    . The values specified in the problem should NOT be hardcoded in the program. For C/C++/Python, these should be provided using command line options (e.g. -a <value> -b <value> ...). For java based programs or read the input parameter from from a properties file application.properties. Thus, program should work correctly when the parameter values are changed.
+    . Provide the results of program execution with your explanation as per the parameters given in the problem. Change (either double or half) two of the parameters e.g. transmission speed, number of routers, link length, packet size etc and re-run the program. Provide and explain the 2nd computation.
+    . All the sources including README and Result.txt etc should be uploaded to 192.168.1.22:/home/cs301/HA2/<usn>. This should be uploaded to USN that appears first in the group in the file "Asn-2-Allocation-groupwise.pdf"
+    . Each member of the group should know fully about the program. Any member (at random) of the group may be asked to explain what has been done. Marks will be awarded to the assignment only after satisfactory explanation. Unsatisfactory explanation will result in penalty marks for the group.
+
+CIE-A2-1. Write the program to implement Q1 of CIE-1. The command line options should provide for following input parameters:
+    -f [file size]: in MBytes
+    -p [packet size]: in Mbits
+    -a [transmission speed of link 1 (A to sw-1)]: in Mbps
+    -b [transmission speed of link 2 (Sw-1 to Sw-2)]: in Mbps
+    -c [transmission speed of link 3 (Sw-3 to Sw-3)]: in Mbps
+    -d [transmission speed of link 4 (S2-3 to Dstn B)]: in Mbps
+    -A [No of bits for cut-thru switching for sw-1]: in bits
+    -B [No of bits for cut-thru switching for sw-2]: in bits
+    -C [No of bits for cut-thru switching for sw-3[: in bits
+    Note: Take 1MB as 8Mbits i.e. 8000000 bits and not as 8x1024x102. Value of 0 for -A, -B, -C implies store and forward switching
+
+Compute the network delays hop by hop i.e. packet by packet. Essentially, display the time when first packet reached sw-1, sw-2, sw-3 and destination. Essentially, display output should be matrix like given below:
+
+Pkt#    Sw-1    Sw-2    Sw-3    Dstn-B
+1       1       2       2.005   3.005
+
+
+CIE-A2-2. Write the program to implement Q2 of CIE-1. The command line options should provide for following input parameters:
+    -n [total number of users]:
+    -l [transmission speed of each user]: in Mbps
+    -L [transmission speed of outgoing link]: in Mbps
+    -p [probability of each user transmitting]:
+
+Compute the probability when there is no queuing on outgoing link. When value of n is doubled and p is halved, what happens. Explain.
+
+CIE-A2-3. Write the program to implement Q3 of CIE-1. The command line options should provide for following input parameters:
+    -f [file size]: in Mbytes
+    -n [number of peers]:
+    -c [size of chunk]: in Mbits
+    -S [server upload speed]: in Mbps
+    -d [download speed of peer]: in Mbps
+    -s [upload speed of peer]: in Mbps
+Note: Assume 1MByte is 8Mbits i.e. 8000000 bits. Also consider only those cases where during 1s, an integer number of chunks can be completely transmitted, for example, if server upload is 10Mbps, then specify peer download speed to be any of 1Mbps, 2Mbps, 2.5Mbps, 5Mbps only.
+
+Compute the distribution time when all peers will receive all the chunks. Starting from server, at completion of each seconds, display the number of new of peers that received chunks, total chunks transmitted, chunks remaining to be transmitted, i.e. display should be matrix like
+
+Time (in Seconds)   New peers       new Chunks      total chunks
+                                    transmitted     transmitted
+1                   5               5               5
+2                   ...             ...             ...
+
+CIE-A2-4. Write the program to implement Q4 of CIE-1. The command line options should provide for the following input parameters.
+    -u [username]: character string. Default value "guest"
+    -p [password]: character string. Default value "guest"
+    -S [POP3 server]: IP address of pop3 server. By default 127.0.0.1
+    -P [Port Number]: port number of POP3 server. by default 110
+    -d [delete count]: number of mails to delete. Default value 1
+The program should connect to specified server using POP3 protocol, login with specified username/password and retrieve all the emails and display these on console. Using the delete count, it should delete that many emails.
+Test the program in following two sequences. First send few mail (e.g. 2) using SMTP (manually i.e. telnet host 25) for the specified user. Use the program to retrieve these emails and delete specified number of emails. Again send few emails (e.g. 3) to the same user and then using the program display all the emails and delete all the emails. When you connect 3rd time, there should be no emails and same should be displayed.
+
+CIE-A2-5. Write the program to implement Q5 of CIE-1. The command line options should provide for the following
+    -u [url]: URL of the website e.g. http://www.google.com
+    -c [Connection-type]: whether connection should be keep-alive or close
+    -o [output file]: filename where response should be saved e.g. A2-5.html
+
+The program should connect to the given URL and retrieve the response. Parse the status code of the response. If the status code belongs to 3xx, then send another request to the URL as given in the header "Location:". Continue the process till received status code is 200. When receive status code is 200, save the received response in the file specified by -o option and then open the file using the browser and see it should display properly.
+
+
+
+A2-1: Develop a web server that handles one request at a time. Web server should accept the request and parse the HTTP request. Read the requested file from the server's file system, create an HTTP Response message consisting of requested file preceded by header lines and then send the response directly to the client. The content type value (i.e. MIME type) should be derived from file extension e.g. text/plain for .txt file, text/html for .html file, image/jpeg for .jpg file etc. Use any browser to ensure that your server works fine. In case, the file is not accessible on the server, it should provide status 4xx message as applicable.
+The skeleton code is given web_server.py
+
+
+A2-2. Consider A1 but instead of handling one request at a time, implement a multi-threaded web server capable of serving multiple requests simultaneously. Using threading, first create a main thread in which your modified server listens for clients at a fixed port. When it receives a TCP connection request from a client, it will set up the TCP connection through another port and services the client request in a separate thread. There will be a separate TCP connection in a separate thread for each request/response pair. Assume that web server is serving only html contents.
+use the skeleton code given in web_server.py
+
+
+A2-3. Instead of using a browser for A1 or A2, write your own HTTP client to access a web server. Your client will connect to the server using a TCP connection, send an HTTP request to the server, and display the server response as an output. You can assume that the HTTP request sent is a GET method. The client should take command line arguments specifying the server IP address or host name, the port at which the server is listening, and the path at which the requested object is stored at the server. The following is an input command format to run the client. Once the response to requested URL is received, it should be saved in a file with the same name. Use a standard browser to open the saved file to see that file is saved properly.
+No skeleton code provided.
+
+A2-4. Implement the following client program. The client should send 10 pings to the server. Because UDP is an unreliable protocol, a packet sent from the client to the server may be lost in the network, or vice versa. For this reason, the client cannot wait indefinitely for a reply to a ping message. You should get the client wait up to one second for a reply; if no reply is received within one second, your client program should assume that the packet was lost during transmission across the network. You will need to look up the Python documentation to find out how to set the timeout value on a datagram socket. Specifically, your client program should
+    (1) send the ping message using UDP (Note: Unlike TCP, you do not need to establish a connection first, since UDP is a connectionless protocol.)
+    (2) print the response message from server, if any
+    (3) calculate and print the round trip time (RTT), in seconds, of each packet, if server responses
+    (4) otherwise, print “Request timed out”
+skeleton code ??
+
+A2-5 and A2-6.
+To be done on collaboration with each other.
+A2-5. Modify A4 to implement UDP heartbeat. The Heartbeat can be used to check if an application is up and running and to report one-way packet loss. The client sends a sequence number and current timestamp in the UDP packet to the server, which is listening for the Heartbeat (i.e., the UDP packets) of the client. Upon receiving the packets, the server calculates the time difference and reports any lost packets. If the Heartbeat packets are missing for some specified period of time, we can assume that the client application has stopped.
+
+A2-5. Implement the UDP Heartbeat client .
+A2-6. Implement the UDP Heartbeat server. You will need to modify the given UDPPingerServer.py.
+
+
+A2-7. develop a simple mail client that sends email to any recipient. Your client will need to connect to a mail server, dialogue with the mail server using the SMTP protocol, and send an email message to the mail server. Python provides a module, called smtplib, which has built in methods to send mail using SMTP protocol. However, we will not be using this module in this lab, because it hide the details of SMTP and socket programming.
+Note: Do not use smtplib or any other similar module. Client should be able to send multiple emails in a single connection.
+
+A2-8. Modify the A7 to send only email in a connection but modify it to send attachements encoded as base64.
+
+A2-9. Develop a small web proxy server which is able to cache web pages. It is a very simple proxy server which only understands simple GET-requests, but is able to handle all kinds of objects - not just HTML pages, but also images.
+To test your proxy server, make a proxy setting the browser and point to your web server and verify that it works.
+The skeleton code is given web_proxy.py
+
+
+
+
+

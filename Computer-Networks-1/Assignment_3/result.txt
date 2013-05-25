@@ -1,0 +1,233 @@
+---------------
+Assignment-3 A8
+---------------
+ 
+Running the server first followed by the client
+
+python A8server.py 
+python A8client.py -t 3 -N 22 -l 20
+
+-------------
+CLIENT OUTPUT:-
+-------------
+
+Establishing Connection.....
+Sent 1 S
+Received 24 2 SA
+Connection Established
+Sent Packet (Original) at 0.0003s Seq = 2 Ack = 25 Data = AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+Sent Packet (Original) at 0.0004s Seq = 85 Ack = 25 Data = BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+Sent Packet (Original) at 0.0004s Seq = 140 Ack = 25 Data = CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+Sent Packet (Original) at 0.0005s Seq = 180 Ack = 25 Data = DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+Ack received at 0.0005s  : Seq = 25 Ack = 85 TCP Flag = A
+Ack received at 0.0006s  : Seq = 25 Ack = 140 TCP Flag = A
+Ack received at 0.0006s  : Seq = 25 Ack = 239 TCP Flag = A
+Congestion Window =  4
+Sent Packet (Original) at 0.0007s Seq = 239 Ack = 25 Data = EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+Sent Packet (Original) at 0.0007s Seq = 297 Ack = 25 Data = FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+Sent Packet (Original) at 0.0008s Seq = 358 Ack = 25 Data = GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+Sent Packet (Original) at 0.0009s Seq = 402 Ack = 25 Data = HHHHHHHHHHHHHHHHHHHHHH
+Ack received at 0.0009s  : Seq = 25 Ack = 297 TCP Flag = A
+Ack received at 0.0009s  : Seq = 25 Ack = 358 TCP Flag = A
+Ack received at 0.0010s  : Seq = 25 Ack = 402 TCP Flag = A
+Sent Packet (Retransmitted) at 3.0042s Seq = 402 Ack = 25 Data = HHHHHHHHHHHHHHHHHHHHHH
+Ack received at 3.0046s  : Seq = 25 Ack = 424 TCP Flag = A
+Congestion Window =  4
+Sent Packet (Original) at 3.0048s Seq = 424 Ack = 25 Data = IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+Sent Packet (Original) at 3.0050s Seq = 499 Ack = 25 Data = JJJJJJJJJ
+Sent Packet (Original) at 3.0051s Seq = 508 Ack = 25 Data = KKKKKKKKKKKKKKKK
+Sent Packet (Original) at 3.0053s Seq = 524 Ack = 25 Data = LLLLLLLLLLLLLLLLLLL
+Ack received at 3.0054s  : Seq = 25 Ack = 499 TCP Flag = A
+Ack received at 3.0055s  : Seq = 25 Ack = 508 TCP Flag = A
+Ack received at 3.0057s  : Seq = 25 Ack = 543 TCP Flag = A
+Congestion Window =  4
+Sent Packet (Original) at 3.0058s Seq = 543 Ack = 25 Data = MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+Sent Packet (Original) at 3.0059s Seq = 627 Ack = 25 Data = NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Sent Packet (Original) at 3.0061s Seq = 681 Ack = 25 Data = OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+Sent Packet (Original) at 3.0062s Seq = 775 Ack = 25 Data = PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+Ack received at 3.0063s  : Seq = 25 Ack = 627 TCP Flag = A
+Ack received at 3.0064s  : Seq = 25 Ack = 681 TCP Flag = A
+Ack received at 3.0065s  : Seq = 25 Ack = 775 TCP Flag = A
+Ack received at 3.0065s  : Seq = 25 Ack = 843 TCP Flag = A
+Congestion Window =  5
+Sent Packet (Original) at 3.0066s Seq = 843 Ack = 25 Data = QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+Sent Packet (Original) at 3.0067s Seq = 937 Ack = 25 Data = RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+Sent Packet (Original) at 3.0068s Seq = 991 Ack = 25 Data = SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+Sent Packet (Original) at 3.0069s Seq = 1025 Ack = 25 Data = TTTTTTTTTTTTTTTT
+Sent Packet (Original) at 3.0071s Seq = 1041 Ack = 25 Data = UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+Ack received at 3.0071s  : Seq = 25 Ack = 937 TCP Flag = A
+Ack received at 3.0072s  : Seq = 25 Ack = 991 TCP Flag = A
+Ack received at 3.0073s  : Seq = 25 Ack = 1025 TCP Flag = A
+Ack received at 3.0073s  : Seq = 25 Ack = 1041 TCP Flag = A
+Ack received at 3.0074s  : Seq = 25 Ack = 1135 TCP Flag = A
+Congestion Window =  6
+Sent Packet (Original) at 3.0074s Seq = 1135 Ack = 25 Data = VVVVVVVVVV
+Ack received at 3.0076s  : Seq = 25 Ack = 1145 TCP Flag = A
+Congestion Window =  4
+Sent 1145 26 F
+Received 26 1146 F
+Received 27 1146 F
+Sent 1146 F
+Connection Closed
+
+-------------
+SERVER OUTPUT:-
+-------------
+Establishing Connection.....
+Received 1 S
+Sent SYNACK: Seq = 24 Ack = 2 TCP Flag = SA
+Connection Established
+Received data:  2 25 A AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+Ack Sent: Seq = 25 Ack = 85 TCP Flag = A
+Received data:  85 25 A BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+Packet AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA sent to application layer
+Ack Sent: Seq = 25 Ack = 140 TCP Flag = A
+Received data:  140 25 A CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+Packet BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB sent to application layer
+Ack Sent: Seq = 25 Ack = 180 TCP Flag = A
+Received data:  180 25 A DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+Packet CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC sent to application layer
+Ack Sent: Seq = 25 Ack = 239 TCP Flag = A
+Received data:  239 25 A EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+Packet DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD sent to application layer
+Ack Sent: Seq = 25 Ack = 297 TCP Flag = A
+Received data:  297 25 A FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+Packet EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE sent to application layer
+Ack Sent: Seq = 25 Ack = 358 TCP Flag = A
+Received data:  358 25 A GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+Packet FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF sent to application layer
+Ack Sent: Seq = 25 Ack = 402 TCP Flag = A
+Received data:  402 25 A HHHHHHHHHHHHHHHHHHHHHH
+Packet GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG sent to application layer
+Ack Sent: Seq = 25 Ack = 424 TCP Flag = A
+Received data:  402 25 A HHHHHHHHHHHHHHHHHHHHHH
+Ack Sent: Seq = 25 Ack = 424 TCP Flag = A
+Received data:  424 25 A IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+Packet HHHHHHHHHHHHHHHHHHHHHH sent to application layer
+Ack Sent: Seq = 25 Ack = 499 TCP Flag = A
+Received data:  499 25 A JJJJJJJJJ
+Packet IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII sent to application layer
+Ack Sent: Seq = 25 Ack = 508 TCP Flag = A
+Received data:  508 25 A KKKKKKKKKKKKKKKK
+Packet JJJJJJJJJ sent to application layer
+Ack Sent: Seq = 25 Ack = 524 TCP Flag = A
+Received data:  524 25 A LLLLLLLLLLLLLLLLLLL
+Packet KKKKKKKKKKKKKKKK sent to application layer
+Ack Sent: Seq = 25 Ack = 543 TCP Flag = A
+Received data:  543 25 A MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+Packet LLLLLLLLLLLLLLLLLLL sent to application layer
+Ack Sent: Seq = 25 Ack = 627 TCP Flag = A
+Received data:  627 25 A NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Packet MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM sent to application layer
+Ack Sent: Seq = 25 Ack = 681 TCP Flag = A
+Received data:  681 25 A OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+Packet NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN sent to application layer
+Ack Sent: Seq = 25 Ack = 775 TCP Flag = A
+Received data:  775 25 A PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+Packet OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO sent to application layer
+Ack Sent: Seq = 25 Ack = 843 TCP Flag = A
+Received data:  843 25 A QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+Packet PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP sent to application layer
+Ack Sent: Seq = 25 Ack = 937 TCP Flag = A
+Received data:  937 25 A RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+Packet QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ sent to application layer
+Ack Sent: Seq = 25 Ack = 991 TCP Flag = A
+Received data:  991 25 A SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+Packet RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR sent to application layer
+Ack Sent: Seq = 25 Ack = 1025 TCP Flag = A
+Received data:  1025 25 A TTTTTTTTTTTTTTTT
+Packet SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS sent to application layer
+Ack Sent: Seq = 25 Ack = 1041 TCP Flag = A
+Received data:  1041 25 A UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+Packet TTTTTTTTTTTTTTTT sent to application layer
+Ack Sent: Seq = 25 Ack = 1135 TCP Flag = A
+Received data:  1135 25 A VVVVVVVVVV
+Packet UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU sent to application layer
+Ack Sent: Seq = 25 Ack = 1145 TCP Flag = A
+Received data:  1145 26 F
+Last Packet VVVVVVVVVV sent to application layer
+Sent data:  26 1146 F
+Sent data:  27 1146 F
+Received data:  1146 F
+Connection Closed
+
+-----------
+Explanation
+-----------
+
+--------------------------------------------------------------
+-> There is a 3-way handshake between the client and the server
+   with corresponding values of seq and ack numbers
+
+client:-
+
+Sent 1 S
+Received 24 2 SA
+Connection Established
+Sent Packet (Original) at 0.0003s Seq = 2 Ack = 25 Data = AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+data is sent in the 3rd stage of the handshake
+
+server:-
+
+Establishing Connection.....
+Received 1 S
+Sent SYNACK: Seq = 24 Ack = 2 TCP Flag = SA
+Connection Established
+
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+->Data (packet) transmission to the server
+
+client:-
+
+Sent Packet (Original) at 0.0003s Seq = 2 Ack = 25 Data = AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+Sent Packet (Original) at 0.0004s Seq = 85 Ack = 25 Data = BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+Sent Packet (Original) at 0.0004s Seq = 140 Ack = 25 Data = CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+Sent Packet (Original) at 0.0005s Seq = 180 Ack = 25 Data = DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+Ack received at 0.0005s  : Seq = 25 Ack = 85 TCP Flag = A
+Ack received at 0.0006s  : Seq = 25 Ack = 140 TCP Flag = A
+Ack received at 0.0006s  : Seq = 25 Ack = 239 TCP Flag = A
+Congestion Window =  4
+
+Congestion window size has not changed because only 3 acks were received at the client
+
+the other packet transmission are similar to the one above
+
+Sent Packet (Original) at 3.0058s Seq = 543 Ack = 25 Data = MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+Sent Packet (Original) at 3.0059s Seq = 627 Ack = 25 Data = NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Sent Packet (Original) at 3.0061s Seq = 681 Ack = 25 Data = OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+Sent Packet (Original) at 3.0062s Seq = 775 Ack = 25 Data = PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+Ack received at 3.0063s  : Seq = 25 Ack = 627 TCP Flag = A
+Ack received at 3.0064s  : Seq = 25 Ack = 681 TCP Flag = A
+Ack received at 3.0065s  : Seq = 25 Ack = 775 TCP Flag = A
+Ack received at 3.0065s  : Seq = 25 Ack = 843 TCP Flag = A
+Congestion Window =  5
+
+The congestion window size has increased to 5 because the acks received at the client are equal to the packets sent to the server in this burst
+------------------------------------------------------------
+
+------------------------------------------------------------
+->Connection Teardown
+
+client:-
+
+Sent 1145 26 F
+Received 26 1146 F
+Received 27 1146 F
+Sent 1146 F
+Connection Closed
+
+Sends the FIN segment to the server , waits for the FIN's ack .
+Again waits for the FIN packet from the server and sends an ack after it receives it and finaly closes the connection
+
+server:-
+
+Sent data:  26 1146 F
+Sent data:  27 1146 F
+Received data:  1146 F
+Connection Closed
+
+Waits for the FIN and sends an ACK to the client.
+Sends a FIN segment and waits for the ACK before closing the connection

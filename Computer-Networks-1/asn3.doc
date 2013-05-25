@@ -1,0 +1,170 @@
+Assignment-3
+Submission Date: 22-Nov-12
+Allocation: As per group membership of Assignment-1. Some new groups have been formed which did not have partners in Asn-1.
+
+Expected Submission: A program written in python to compute the desired result for the given problem.
+    . All implementations are in python.
+    . Please provide a README file providing following details: a) the details of command line arguments, any specific modules used, b) description of how program works. The README file should contain USN and name of all group members.
+    . Some of the assignments are to be done in collaboration with other group. README file should provide the other group details (USN numbers and names of other group) with whom you have tested your implementation. If you are not able to work with any of complementing group, then you have to provide your own supporting files for testing.
+   . Please provide a file Result.txt which contains the results and explanation of the result.
+    . Challenges/issues that you faced while writing such a program and how did you address the same.
+    . All the sources including README and Result.txt etc should be uploaded to 192.168.1.22:/home/cs301/HA3/<usn>. This should be uploaded to USN that appears first in the group. The group formation is same as for HA-1.
+    . Each member of the group should know fully about the program. Any member (at random) of the group may be asked to explain what has been done. Marks will be awarded to the assignment only after satisfactory explanation. Unsatisfactory explanation will result in penalty marks for the group.
+
+A1. Write a program that compute estimatedRTT, DevRTT and TimeoutInterval based on the response received. Use the server program TCPServerRTT.py. Start with a value of 1 for estimatedRTT. In case of timeout, TimedoutInterval needs to be doubled when a packet is retransmitted. Use the command line parameter for the following values
+    . -a : value of alpha in computing estimatedRTT
+    . -b : value of beta in computing devRTT
+
+A2. Write a program that computes checksum for all TCP segments sent from client to sender for the following
+    . Client IP Address: 192.168.1.42
+    . Client port number: 12345
+    . Client ISN used: 23456
+    . Server IP Address: 192.168.1.22
+    . Server Port number: 8080
+    . Server ISN used: 56789
+    . Data transferred: "Networks"
+    . TCP receive window size: 32768
+    Assume that none of TCP options are used and there is no urgent data. Compute the checksum and display its value for all packets exchanged for
+        a) all 3 packets in connection setup i.e. SYN-SYN/ACK-ACK
+        b) Both the packets in Data transfer from client to server and its ack
+        c) all 4 packets in Connection close initiated by Client i.e. FIN-ACK-FIN-ACK
+
+Note: For the assignments A3-A6, use UDP as underlying communication channel. The format of data packet would be
+    "<seq num>,<checksum>,<data>" i.e. 3 fields separated by comma(,) character.
+Similarly, The format of ack packet would be
+    "<seq num>, <checksum>"
+    Each packet will carry only one character data starting from 'A' i.e. data in first packet will have 'A', 2nd packet will have 'B', and so on. If a packet is retransmitted, then it will have its original data.
+    Use parity bit computation as checksum value i.e. if parity of data and sequence number is even, then checksum value is 0 and if parity is odd, then checksum value is 1.
+    A3, and A5 are sender programs, and A4 and A6 are receiver programs.
+    A3 and A4 implements GBN (Go Back N) protocol.
+    A5 and A6 implements SR (Selective Repeat) protocol.
+
+
+A3. Use the following command line arguments for GBN Sender.
+    . -N : total number of packets to be sent (minimum of 10)
+    . -s: (UDP) server IP address, and
+    . -p: (UDP) server port number.
+    . -t : timeout value (in seconds).
+    . -w : window size
+    The program should output on console the following:
+    . time (starting from 0 i.e. take current time as 0) and packet contents (seq num, checksum, and data) when a packet is sent, and if it is retransmitted packet.
+    . time when the ack is received from receiver, and sequence number received
+    The program should exit when all the packets are sent and their acks received.
+
+A4. Use the following command line arguments for GBN Receiver.
+    . -p: (UDP) server port number.
+    . -s: Corruption percentage of acks sent.
+    . -r: Corruption percentage of packets received.
+    . -N : total number of packets to be received (minimum of 10)
+
+    For example, for option value "-s 30" and "-r 20", Receiver will corrupt the checksum value for 30% of the packet sent.  Similarly, Before processing the received packet, it will corrupt 20% of incoming packets.
+
+    The program should output on console the following:
+    . time (starting from 0 i.e. take current time as 0) and packet contents (seq num, checksum, and data) when a packet is received.
+    . time when the ack is sent from receiver, and sequence number in the ack packet.
+    The program should exit when all the packets are received and their acks sent.
+
+
+A5. Use the following command line arguments for SR Sender.
+    . -N : total number of packets to be sent (minimum of 10)
+    . -s: (UDP) server IP address, and
+    . -p: (UDP) server port number.
+    . -t : timeout value (in seconds).
+    . -w : window size
+     Sequence numbers will start from 1 and continuously increase i.e. assume sequence number to be infinite, and thus there is no rollback of sequence numbers.
+    The program should output on console the following:
+    . time (starting from 0 i.e. take current time as 0) and packet contents (seq num, checksum, and data) when a packet is sent, and if it is retransmitted packet.
+    . time when the ack is received from receiver, and sequence number received
+    The program should exit when all the packets are sent and their acks received.
+
+A6. Use the following command line arguments for SR Receiver.
+    . -p: (UDP) server port number.
+    . -s: Corruption percentage of acks sent.
+    . -r: Corruption percentage of packets received.
+    . -N : total number of packets to be received (minimum of 10)
+    . -w : window size
+
+    For example, for option value "-s 30" and "-r 20", Receiver will corrupt the checksum value for 30% of the packet sent.  Similarly, Before processing the received packet, it will corrupt 20% of incoming packets.
+
+    The program should output on console the following:
+    . time (starting from 0 i.e. take current time as 0) and packet contents (seq num, checksum, and data) when a packet is received.
+    . time when the ack is sent from receiver, and sequence number in the ack packet.
+    The program should exit when all the packets are received and their acks sent.
+
+Note: For the assignments A7-A11, use UDP as underlying communication channel. Use the following simple format for communication.
+    Seq Num, Ack Num, TCP Flags, Data.
+    TCP Flags can have following values:
+        . "S" - SYN packet
+        . "A" - Ack Packet (can contain data)
+        . "SA" - SYN and ACK packet.
+        . "F" - FIN packet
+    No checksum needs to be computed.
+    Clients will use a same value of RTT for all packets sent as specified by -t option.
+
+    Each packet sent by  client will carry some random size (between 1 and 100) of character data starting from 'A' i.e. data in first packet will have data string consisting of 'A' i.e. "AA...", 2nd packet will have "BB...", and so on. If a packet is retransmitted, then it will have its original data. Server will not send any data and thus only acts as receiver.
+    The ISN (Initial Sequence Number) value should be chosen at random between 1 and 1000. All packets should carry proper value of Sequence number of Acknowledgement number. The first connection setup packet will carry Ack value as 0. Similarly, all packets should carry proper value of TCP flags
+
+    The client program should first do connection setup, followed by data transfer, and finally when all the packets are sent and their acks received, it should do a connection close and program should exit.
+
+    A7 to A10 are TCP Client programs, and A11 is the TCP Server program.
+
+A7. Implement TCP client that uses slow start only and handles only timeout. Since this client is using Slow Start, it will start with cwnd of 1, and keep doubling with each RTT cycle. On timeout, it will restart with cwnd of 1. No ssthreshold is to be maintained.
+Use the following command line arguments for TCP client.
+    . -N : total number of packets to be sent (minimum of 20)
+    . -s: server IP address, and
+    . -p: server port number.
+    . -t : timeout value (in seconds).
+
+    The program should output on console the following:
+    . time (starting from 0 i.e. take current time as 0) and packet contents (Seq num, Ack value, and data) when a packet is sent, and if it is retransmitted packet.
+    . time when the ack is received from receiver, along with sequence number, Ack Value and data received.
+
+
+A8. Implement TCP client that uses Congestion Avoidance only and handles only timeout. Since this client is using Congestion Avoidance, it will start with some cwnd value as specified in command line, and keep incrementing by 1 with each RTT cycle. On timeout, it will start with same cwnd value as specified in command line.
+Use the following command line arguments for TCP client.
+    . -N : total number of packets to be sent (minimum of 20)
+    . -s: server IP address, and
+    . -p: server port number.
+    . -t : timeout value (in seconds).
+    . -w : cwnd size
+
+    The program should output on console the following:
+    . time (starting from 0 i.e. take current time as 0) and packet contents (Seq num, Ack value, and data) when a packet is sent, and if it is retransmitted packet.
+    . time when the ack is received from receiver, along with sequence number, Ack Value and data received.
+
+A9. Implement TCP client that uses slow start only and handles only Fast Retransmit. Since this client is using Slow Start, it will start with cwnd of 1, and keep doubling with each RTT cycle. On receiving 3 duplicate acks, it will reset the cwnd to half of its current value and continue with Slow Start. No ssthreshold is to be maintained.
+Use the following command line arguments for TCP client.
+    . -N : total number of packets to be sent (minimum of 20)
+    . -s: server IP address, and
+    . -p: server port number.
+    . -t : timeout value (in seconds).
+
+    The program should output on console the following:
+    . time (starting from 0 i.e. take current time as 0) and packet contents (Seq num, Ack value, and data) when a packet is sent, and if it is retransmitted packet.
+    . time when the ack is received from receiver, along with sequence number, Ack Value and data received.
+
+A10. Implement TCP client that uses Congestion Avoidance only and handles only Fast Retransmit. Since this client is using Congestion Avoidance, it will start with cwnd value as specified at command line, and keep incrementing by 1 with each RTT cycle. On receiving 3 duplicate acks, it will reset the cwnd to half of its current value and continue with Congestion Avoidance. No ssthreshold is to be maintained.
+Use the following command line arguments for TCP client.
+    . -N : total number of packets to be sent (minimum of 20)
+    . -s: server IP address, and
+    . -p: server port number.
+    . -t : timeout value (in seconds).
+    . -w : initial value of cwnd
+
+    The program should output on console the following:
+    . time (starting from 0 i.e. take current time as 0) and packet contents (Seq num, Ack value, and data) when a packet is sent, and if it is retransmitted packet.
+    . time when the ack is received from server, along with sequence number, Ack Value and data received.
+
+A11. Implement TCP Server that implements timeout and fast retransmit.
+Use the following command line arguments for TCP client.
+    . -N : total number of packets to be received (minimum of 20)
+    . -p : server port number.
+    . -l : type of packet loss for client i.e. 1 (Timeout) or 2(Fast Retransmit)
+    . -P : Percentage of packets that are to be treated as lost
+
+    For each packet received, it will discard P% packets and thus treating them as lost.
+    If packet loss type for client is timeout, then it will not send acknowledgement to client at all when a packet is considered lost or received out of order. If packet loss type for client is Fast Retransmit, for each packet that is received out or order, it will send duplicate Ack
+
+    The program should output on console the following:
+    . time (starting from 0 i.e. take current time as 0) and packet contents (Seq num, Ack value, and data) when a packet is received.
+    . time when the ack is sent to client receiver, along with sequence number, Ack Value.

@@ -1,0 +1,234 @@
+------------------------------------------------------------------------------------
+           ASSIGNMENT-2 A2-7 Result.txt by Vinod Kumar L and Ashwin Agarwal
+------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------
+python asn2.py -h
+
+All the command line arguement options are displayed
+-------------------------------------------------------------------------------
+Output:
+
+usage: asn2.py [-h] [-s SERVERNAME] [-p PORTNO] [-n HOSTNAME] [-m MAILFROM]
+               [-r MAILTO]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -s SERVERNAME, --servername SERVERNAME
+                        enter the server name. Default value is 127.0.0.1
+  -p PORTNO, --portno PORTNO
+                        enter the port number. Default value is 25
+  -n HOSTNAME, --hostname HOSTNAME
+                        enter the host name. Default value is localhost
+  -m MAILFROM, --mailfrom MAILFROM
+                        enter the sender's email id
+  -r MAILTO, --mailto MAILTO
+                        enter the recipient's email id(s). Separated by ',' if
+                        there are more than one recipients
+--------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------
+python asn2.py 
+
+connection is established to localhost:25 
+Server response : 220 vinod-Lenovo-Z580 ESMTP Postfix (Ubuntu)
+EHLO command to the server to sync with localhost
+Server response : 250-vinod-Lenovo-Z580
+250-PIPELINING
+250-SIZE 10240000
+250-VRFY
+250-ETRN
+250-STARTTLS
+250-AUTH PLAIN LOGIN
+250-AUTH=PLAIN LOGIN
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 DSN
+
+Mail ID accepted from the user as the arguement is left empty
+MAIL FROM: request sent to server
+Server response : 250 2.1.0 Ok
+
+Recipient's ID accepted from the user
+RCPT TO: request sent 
+Server Response:250 2.1.5 Ok
+
+DATA command sent to the server 
+Server response:354 End data with <CR><LF>.<CR><LF>
+
+Data is accepted from the user and sent to the server
+Server Response:250 2.0.0 Ok: queued as F1F701432C2
+
+Once the user decides not to send anymore mails
+QUIT is initiated
+Server response:221 2.0.0 Bye
+-------------------------------------------------------------------------------
+Output:
+
+220 vinod-Lenovo-Z580 ESMTP Postfix (Ubuntu)
+
+EHLO localhost
+
+250-vinod-Lenovo-Z580
+250-PIPELINING
+250-SIZE 10240000
+250-VRFY
+250-ETRN
+250-STARTTLS
+250-AUTH PLAIN LOGIN
+250-AUTH=PLAIN LOGIN
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 DSN
+
+Enter the sender's email ID : hello.this@is.cn
+MAIL FROM: hello.this@is.cn 
+
+250 2.1.0 Ok
+
+Enter the Recipient's mail ID(s) :  vinod
+RCPT TO: vinod
+
+250 2.1.5 Ok
+
+DATA
+(Enter the content of the mail)
+354 End data with <CR><LF>.<CR><LF>
+
+this is assignment -2 question A2-7
+.
+250 2.0.0 Ok: queued as F1F701432C2
+
+Do you want to send another mail using the same connection ? (y/n) : n
+QUIT
+
+221 2.0.0 Bye
+
+--------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------
+python asn2.py -s localhost -p 25 -n localhost 
+
+Result analysis is similar to the above
+-------------------------------------------------------------------------------
+Output:
+
+220 vinod-Lenovo-Z580 ESMTP Postfix (Ubuntu)
+
+EHLO localhost
+
+250-vinod-Lenovo-Z580
+250-PIPELINING
+250-SIZE 10240000
+250-VRFY
+250-ETRN
+250-STARTTLS
+250-AUTH PLAIN LOGIN
+250-AUTH=PLAIN LOGIN
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 DSN
+
+Enter the sender's email ID : ashwin.agarwal@pesit.ise
+MAIL FROM: ashwin.agarwal@pesit.ise 
+
+250 2.1.0 Ok
+
+Enter the Recipient's mail ID(s) :  vinod
+RCPT TO: vinod
+
+250 2.1.5 Ok
+
+DATA
+(Enter the content of the mail)
+354 End data with <CR><LF>.<CR><LF>
+
+hello mate
+.
+250 2.0.0 Ok: queued as 01D491432C0
+
+Do you want to send another mail using the same connection ? (y/n) : n
+QUIT
+
+221 2.0.0 Bye
+
+--------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------
+python asn2.py -s localhost -p 25 -n localhost -m cn@ise.pesit.edu -r ashwin@pes.ise,vinod
+
+Result analysis is similar to the above except for multiple recipients where RCPT TO 
+request is sent multiple times to the server
+------------------------------------------------------------------------------------------
+Output:
+
+220 vinod-Lenovo-Z580 ESMTP Postfix (Ubuntu)
+
+EHLO localhost
+
+250-vinod-Lenovo-Z580
+250-PIPELINING
+250-SIZE 10240000
+250-VRFY
+250-ETRN
+250-STARTTLS
+250-AUTH PLAIN LOGIN
+250-AUTH=PLAIN LOGIN
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 DSN
+
+MAIL FROM: cn@ise.pesit.edu 
+
+250 2.1.0 Ok
+
+RCPT TO: ashwin@pes.ise
+
+250 2.1.5 Ok
+
+RCPT TO: vinod
+
+250 2.1.5 Ok
+
+DATA
+(Enter the content of the mail)
+354 End data with <CR><LF>.<CR><LF>
+
+hello sir
+.
+250 2.0.0 Ok: queued as 5E59A1432C2
+
+Do you want to send another mail using the same connection ? (y/n) : y
+Enter the sender's email ID : this.is@pesit            
+MAIL FROM: this.is@pesit 
+
+250 2.1.0 Ok
+
+Enter the Recipient's mail ID(s) :  vinod
+RCPT TO: vinod
+
+250 2.1.5 Ok
+
+DATA
+(Enter the content of the mail)
+354 End data with <CR><LF>.<CR><LF>
+
+PESIT
+Welcomes You
+. 
+250 2.0.0 Ok: queued as 144861432C4
+
+Do you want to send another mail using the same connection ? (y/n) : n
+QUIT
+
+221 2.0.0 Bye
+
+------------------------------------------------------------------------------------------
+
+
+
+

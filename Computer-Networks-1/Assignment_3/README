@@ -1,0 +1,36 @@
+Assignment 3 - A8
+Members : ShriKrishna Holla - 1PI10IS100
+          Vinod Kumar L     - 1PI10IS118
+          Ashish Shetty     - 1PI10IS132
+
+Command Line Arguements used : 
+
+Short form    Long Form                                       Description                               Default Value        
+
+-N            --packets              Accepts the total numnber of packets to be sent(minimum 20)              20
+
+-t            --timeout                         Accepts the timeout value in seconds                           2
+
+-s            --serverip                        Accepts the server's IP address                            127.0.0.1
+
+-p            --serverport                      Accepts the server's port number                             12345
+
+-w            --windowsize                     Accepts the congestion window's size                            4
+
+-l            --packetloss                  Accepts the average packet loss as percentage                     30
+
+
+Description : 
+
+for A8client:
+
+<Connection Establishment>
+
+The client starts sending data as soon as it receives the SYNACK. The timer starts when the first packet containing data is sent to the server. Packet loss is simulated while the packet is being sent. The data contains a string of characters whose size varies from 1 to 100. The packets are initially added to the python dictioary named window, whose contents are used for retransmission if the timeout occurs. After all the packets (nmber equal to the size of the congestion window) is sent in a burst, the client starts waiting for the acknowledgemetns. As TCP uses cumulative Acks to determine whether a packet was received at the server or not, all the packets whose sequence number + the data size is les than the Ack number received are removed from the window. If there are packets which are yet to be acked then the timer is reset so that the client might receive the next acknowledgement. And if a timeout occurs, all the non-acked packets inside the window are retransmitted to the server and the timer is reset. The size of the congestion window increases by one only if all the acknowledgements are received before timeout and retransmission .Once all the packets are acked after retransmission if necessary then the congestion window moves to the next set of packets. This cycle continues until all the packets are sent to the sever and successfully acked.
+
+The packets sent to the server are displayed along with the time at which it is sent in the output console with "Original" tag if the packet is being sent for the first time and "Retransmitted" tag if it is a retransmitted packet.
+
+<Connection teardown>
+
+for A8server:
+    
